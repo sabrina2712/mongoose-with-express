@@ -1,10 +1,16 @@
-var express = require("express");
-var logger = require("morgan");
+const express = require("express");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
-var app = express();
+const app = express();
+
+// Connect to db
+mongoose.connect("mongodb://localhost:27017/task-exercise", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Router Imports
-
 const taskRouter = require("./routes/task");
 
 app.use(logger("dev"));

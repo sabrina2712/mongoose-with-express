@@ -1,8 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({ ok: 1 });
-});
+//Controller
+const {
+  allTasks,
+  addTask,
+  deleteTask,
+  updateTask,
+} = require("../controller/task");
+
+router.get("/", allTasks);
+router.post("/", addTask);
+router.delete("/:id", deleteTask);
+router.put("/:id", updateTask);
 
 module.exports = router;
