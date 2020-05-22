@@ -4,6 +4,7 @@ exports.allTasks = async (req, res) => {
   const tasks = await Task.find();
 
   res.json({ data: tasks });
+  console.log(tasks)
 };
 
 exports.addTask = async (req, res) => {
